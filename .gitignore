@@ -1,0 +1,8 @@
+node_modules
+node_modules/*
+.idea
+.idea/*
+yarn.lock
+build
+.happypack
+script/dist
