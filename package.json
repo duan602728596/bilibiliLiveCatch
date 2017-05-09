@@ -1,0 +1,37 @@
+{
+  "main": "./build/view/index.html",
+  "name": "bilibiliLiveCatch",
+  "version": "0.1.0",
+  "nodejs": true,
+  "window": {
+    "title": "B站直播录源测试版(v0.1.0)",
+    "position": "center",
+    "toolbar": true,
+    "frame": true,
+    "width": 1200,
+    "height": 600,
+    "fullscreen": false,
+    "show_in_taskbar": true
+  },
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "coffeescript": "next",
+    "del-gulpsass-blank-lines": "^0.1.3",
+    "gulp": "gulpjs/gulp#4.0",
+    "gulp-bom": "^1.0.0",
+    "gulp-changed": "^3.1.0",
+    "gulp-coffee2": "^2.3.4",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-prettify": "^0.5.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-utf8-convert": "^0.0.7",
+    "nodegrass": "^0.0.3"
+  }
+}
