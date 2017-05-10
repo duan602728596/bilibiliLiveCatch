@@ -1,4 +1,4 @@
 const coffee = require('coffeescript/register');
-const app = require('./gulp-app');
+const app = require('./gulp-app.coffee');
 
 app();
