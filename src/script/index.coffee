@@ -16,7 +16,7 @@ date = ()->
 # 判断进程关闭，渲染ui
 panduan = ()->
   MAP.forEach((value, key)->
-    if value.child.exitCode or value.child.killed
+    if value.child.exitCode != null or value.child.killed
       $span = value.element.data('fun', 'record').find('span')
       $span.eq(0).removeClass('glyphicon-stop').addClass('glyphicon-play')
       $span.eq(1).html('录制')
