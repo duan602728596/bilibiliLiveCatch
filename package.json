@@ -1,10 +1,10 @@
 {
   "main": "./build/view/index.html",
   "name": "bilibiliLiveCatch",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "nodejs": true,
   "window": {
-    "title": "B站直播录源测试版(v0.1.0)",
+    "title": "B站直播录源(测试版v0.1.1)",
     "position": "center",
     "toolbar": true,
     "frame": true,
