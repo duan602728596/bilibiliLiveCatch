@@ -38,13 +38,13 @@ saveData = (event)->
                    <td>#{ name }</td>
                    <td>#{ id }</td>
                    <td>
-                     <button class="btn btn-primary btn-sm" type="button" data-fun="record" data-room="#{ x }">
-                       <span class="glyphicon glyphicon-play"></span>
-                       <span>录制</span>
+                     <button class="btn btn-primary btn-sm fun-record" type="button" data-fun="record" data-room="#{ x }">
+                       <span class="glyphicon glyphicon-play fun-record-children"></span>
+                       <span class="fun-record-children">录制</span>
                      </button>
-                     <button class="btn btn-danger btn-sm" type="button" data-fun="delete" data-room="#{ x }">
-                       <span class="glyphicon glyphicon-remove"></span>
-                       <span>删除</span>
+                     <button class="btn btn-danger btn-sm fun-record" type="button" data-fun="delete" data-room="#{ x }">
+                       <span class="glyphicon glyphicon-remove fun-record-children"></span>
+                       <span class="fun-record-children">删除</span>
                      </button>
                    </td>
                  </tr>""").appendTo($ROOM_LIST)

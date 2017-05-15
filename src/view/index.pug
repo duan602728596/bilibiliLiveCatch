@@ -8,14 +8,18 @@ html
     body
         div.blc
             // 工具栏
-            div.bg-warning.blc-tools
-                div.form-inline
+            div.bg-warning.blc-tools.clearfix
+                div.pull-left.form-inline
                     label(for='inputRoomName') 输入直播间名称：
                     input.form-control#inputRoomName(type='text')
                     label(for='inputRoomId') 输入直播间ID：
                     input.form-control#inputRoomId(type='text')
                     input.btn.btn-default#saveRoomData(type='button' value='保存')
                     span.blc-tools-tishi#tiShi
+                div.pull-right
+                    button.btn.btn-success(data-fun='block')#cut-open
+                        span.glyphicon.glyphicon-scissors
+                        span 视频剪切
             // 显示数据
             div.blc-data
                 table.table.table-bordered.table-hover.blc-table
@@ -25,10 +29,58 @@ html
                             th.blc-table-td1 直播间ID
                             th.blc-table-td2 操作
                     tbody#roomList
+            // 视频剪切界面
+            div.cut#cut
+                div.cut-tools.bg-warning.clearfix
+                    div.pull-left
+                        h4 视频剪切
+                    div.pull-right
+                        button.btn.btn-danger(data-fun='none')#cut-close
+                            span.glyphicon.glyphicon-off
+                            span 关闭
+                div.cut-list
+                    table.table.table-condensed.table-bordered.cut-table
+                        thead
+                            tr.bg-info
+                                th 文件地址
+                                th 开始时间
+                                th 结束时间
+                                th 保存地址
+                                th 操作
+                        tbody
+                            tr.bg-danger
+                                td
+                                    label
+                                        a.btn.btn-default.btn-sm(role='button' tabindex='0') 选择文件
+                                        input.cut-file#cut-file(type='file')
+                                    span#cut-file-text
+                                td
+                                    input.form-control.cut-input#startTime-h(type='text')
+                                    span :
+                                    input.form-control.cut-input#startTime-m(type='text')
+                                    span :
+                                    input.form-control.cut-input#startTime-s(type='text')
+                                td
+                                    input.form-control.cut-input#endTime-h(type='text')
+                                    span :
+                                    input.form-control.cut-input#endTime-m(type='text')
+                                    span :
+                                    input.form-control.cut-input#endTime-s(type='text')
+                                td
+                                    label
+                                        a.btn.btn-default.btn-sm(role='button' tabindex='0') 选择保存位置
+                                        input.cut-file#cut-save(type='file' nwsaveas nwworkingdir)
+                                    span#cut-save-text
+                                td
+                                    button.btn.btn-primary.btn-sm#addToList(type='button')
+                                        span.glyphicon.glyphicon-floppy-disk
+                                        span 添加到队列
+                        tbody#cut-list-table
         script(src='https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js')
         script(src='../script/common/IndexedDB.js')
-        script(src='../script/options.js')
+        script(src='../script/common/common.js')
         script(src='../script/initDB.js')
         script(src='../script/initView.js')
         script(src='../script/saveData.js')
         script(src='../script/index.js')
+        script(src='../script/cut.js')

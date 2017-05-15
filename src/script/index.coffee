@@ -1,17 +1,9 @@
-PATH = require('path');
-PROCESS= require('process');
 CHILD_PROCESS = require('child_process');
 NODEGRASS = require('nodegrass')
 CHEERIO = require('cheerio')
-__dirname = PATH.dirname(PROCESS.execPath).replace(/\\/g, '/');
 $ROOM_LIST = $('#roomList')
 DB_OPTIONS = window.OPTIONS.db
 MAP = new Map()
-
-# 获取当前年月日时分秒
-date = ()->
-  date1 = new Date()
-  return "#{ date1.getFullYear() }-#{ date1.getMonth() + 1 }-#{ date1.getDate() }-#{ date1.getHours() }-#{ date1.getMinutes() }-#{ date1.getSeconds() }"
 
 # 判断进程关闭，渲染ui
 panduan = ()->
@@ -102,9 +94,9 @@ recordVideo = (room, $element)->
   return
 
 # 停止录像
-stopRecord = (room, $element)->
-  o = MAP.get(room.roomId)
-  o.child.kill()
+stopRecord = (room)->
+  obj = MAP.get(room.roomId)
+  obj.child.kill()
   return
 
 # 从数据库删除一个字段
@@ -122,23 +114,22 @@ deleteRoom = (room, $element)->
 
 # 事件冒泡监听
 roomListOnClick = (event)->
-  e = event.target
-  element = null
+  $e = $(event.target)
+  $element = null
 
-  if e.tagName == 'BUTTON'
-    element = e
-  else if e.tagName == 'SPAN'
-    element = e.parentNode
+  if $e.hasClass('fun-record')
+    $element = $e
+  else if $e.hasClass('fun-record-children')
+    $element = $e.parent()
 
-  if element
-    $element = $(element)
-    fun = $(element).data('fun')
-    room = JSON.parse($(element).data('room').replace(/'/g, '"'))
+  if $element
+    fun = $element.data('fun')
+    room = JSON.parse($element.data('room').replace(/'/g, '"'))
     switch fun
       when 'delete'
         if !$element.prop('disabled') then deleteRoom(room, $element)
       when 'record' then recordVideo(room, $element)
-      when 'stop' then stopRecord(room, $element)
+      when 'stop' then stopRecord(room)
 
   return
 
