@@ -1,8 +1,8 @@
 ###
   剪切视频
 ###
-PATH = require('path');
-CHILD_PROCESS = require('child_process');
+PATH = require('path')
+CHILD_PROCESS = require('child_process')
 CUT_LIST = new Map()
 
 $CUT = $('#cut')
