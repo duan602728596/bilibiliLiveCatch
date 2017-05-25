@@ -215,17 +215,3 @@ cutListOnClick = (event)->
 
 
 $CUT_LIST_TABLE.on('click', cutListOnClick)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
