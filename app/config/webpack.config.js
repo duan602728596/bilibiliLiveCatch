@@ -4,7 +4,6 @@ const process = require('process');
 const webpack = require('webpack');
 const HappyPack = require('happypack');
 const manifest = require('../.dll/manifest.json');
-const coffeeConfig = require('./coffee.config');
 
 const happyThreadPool = HappyPack.ThreadPool({
   size: os.cpus().length
@@ -99,7 +98,7 @@ function config(options){
       // coffeescript
       new HappyPack({
         id: 'coffee_loader',
-        loaders: [coffeeConfig],
+        loaders: ['coffee-loader'],
         threadPool: happyThreadPool,
         verbose: true
       })

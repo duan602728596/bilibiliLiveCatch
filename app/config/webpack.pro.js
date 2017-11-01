@@ -70,7 +70,7 @@ module.exports = config({
     // sass
     new HappyPack({
       id: 'sass_loader',
-      loaders: [cssConfig, sassConfig],
+      loaders: ['css-loader', sassConfig],
       threadPool: happyThreadPool,
       verbose: true
     }),
