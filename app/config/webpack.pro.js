@@ -7,7 +7,6 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const HappyPack = require('happypack');
 const { proHtmlWebpackPlugin } = require('./htmlWebpackPlugin');
 const config = require('./webpack.config');
-const cssConfig = require('./css.config');
 const sassConfig = require('./sass.config');
 
 const happyThreadPool = HappyPack.ThreadPool({
