@@ -1,0 +1,22 @@
+.font12
+  font-size: 12px
+.cur-p
+  cursor: pointer
+.mr
+  margin-right: 5px
+/* alert */
+.alert-body
+  $w: 220px
+  position: absolute
+  z-index: 3
+  top: 10px
+  left: 50%
+  width: $w
+  margin-left: $w / -2
+/* 动画 */
+.fade
+  &-enter-active, &-leave-active
+    opacity: 1
+    transition: opacity .2s
+  &-enter, &-leave-to
+    opacity: 0

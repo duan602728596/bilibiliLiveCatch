@@ -1,0 +1,46 @@
+$icomoon-font-path: './fonts' !default
+
+$icon-files: '\e900'
+$icon-alignment-align: '\f08a'
+$icon-search: '\f02e'
+$icon-server: '\f097'
+$icon-spinner10: '\e983'
+
+@font-face
+  font-family: 'icons'
+  src: url('#{ $icomoon-font-path }/icons.ttf?xzscqz') format('truetype'), url('#{ $icomoon-font-path }/icons.woff?xzscqz') format('woff'), url('#{ $icomoon-font-path }/icons.svg?xzscqz#icon') format('svg')
+  font-weight: normal
+  font-style: normal
+
+.icon
+  margin-right: 5px
+  vertical-align: -1px
+
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  line-height: 1
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+.icon-files
+  &:before
+    content: $icon-files
+.icon-alignment-align
+  &:before
+    content: $icon-alignment-align
+.icon-search
+  &:before
+    content: $icon-search
+.icon-server
+  &:before
+    content: $icon-server
+.icon-spinner10
+  &:before
+    content: $icon-spinner10
