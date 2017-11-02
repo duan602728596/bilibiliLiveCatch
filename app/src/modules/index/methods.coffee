@@ -46,7 +46,7 @@ addAData = ()->
       store = @getObjectStore(objectStore.list.name)
       d = {
         'name': _this.name,
-        'id': _this.id,
+        'id': Number(_this.id),
       }
       store.add(d)
       _this.idList.push(d)

@@ -1,26 +1,17 @@
 request = global.require('request')
 
-# 获取html
-export getHtml = (url)->
+# 获取数据
+export getData = (id)->
   return new Promise((resolve, reject)=>
     request({
-      'url': url,
+      'url': 'https://api.live.bilibili.com/room/v1/Room/room_init?id=' + id,
       'method': 'GET',
-      'headers': {
-        'Host': 'live.bilibili.com',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36',
-      },
       'encoding': 'utf-8',
     }, (err, res, body)=>
       if err
+        console.error(err)
         reject(err)
       else
         resolve([res, body])
     )
   )
-
-# 解析
-export analysisScripts = (html)->
-  str = html.match(/var ROOMID = .*;/)
-  id = str[0].match(/[0-9]+/)
-  return id[0]
