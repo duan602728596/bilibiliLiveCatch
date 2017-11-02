@@ -15,7 +15,7 @@ html
           div.input-group
             input.form-control.search-id.font12#id(type='text' v-model='id' readonly)
             button.btn.input-group-addon.search-copy.cur-p(type='button' title='复制' v-on:click='onCopy()')
-              i.icon.icon-files
+              i.icon.icon-clipboard
         button.btn.btn-block.btn-lg.btn-primary.font12.cur-p(type='button' title='获取直播间ID' v-on:click='onGetRoomId()')
           i.icon.icon-search.mr
           | 获取直播间ID
@@ -27,4 +27,4 @@ html
           | 请求错误，错误代码：
           b {{ error }}
           | 。
-    script(type='text/javascript' src=require('../.dll/dll'))
+    script(type='text/javascript' src=require('../../.dll/dll'))

@@ -10,11 +10,14 @@ html
       header.bg-dark.tools
         div
           button.btn.btn-primary.mr.font12.cur-p(type='button' title='添加直播间ID' v-on:click='dialogDisplay(true)')
-            i.icon.icon-alignment-align
+            i.icon.icon-drive
             | 添加直播间ID
-          button.btn.btn-default.font12.cur-p(type='button' title='查找直播间ID' v-on:click='onOpenSearchIDWindow()')
+          button.btn.btn-default.mr.font12.cur-p(type='button' title='查找直播间ID' v-on:click='onOpenSearchIDWindow()')
             i.icon.icon-server
             | 查找直播间ID
+          button.btn.btn-default.font12.cur-p(type='button' title='视频快速剪切' v-on:click='onOpenCutWindow()')
+            i.icon.icon-film
+            | 视频快速剪切
       // 数据
       div.data
         table.table.table-bordered.table-hover.data-table.font12
@@ -75,4 +78,4 @@ html
         div.alert.alert-warning.text-center.alert-body.font12(role='alert' v-if='warnID') 必须输入ID！
       transition(name='fade')
         div.alert.alert-warning.text-center.alert-body.font12(role='alert' v-if='warnIsReset') 该ID已存在！
-    script(type='text/javascript' src=require('../.dll/dll'))
+    script(type='text/javascript' src=require('../../.dll/dll'))
