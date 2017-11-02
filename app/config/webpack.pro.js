@@ -61,6 +61,19 @@ module.exports = config({
             }
           }
         ]
+      },
+      { // 矢量图片 & 文字
+        test: /^.*\.(eot|svg|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name]_[hash].[ext]',
+              outputPath: 'file/',
+              publicPath: '../'
+            }
+          }
+        ]
       }
     ]
   },
