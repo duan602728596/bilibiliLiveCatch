@@ -77,7 +77,8 @@ module.exports = config({
     // 允许错误不打断程序
     new webpack.NoEmitOnErrorsPlugin(),
     // html模板
-    devHtmlWebpackPlugin('index', '../src/index.pug'),
-    devHtmlWebpackPlugin('searchID', '../src/searchID.pug')
+    devHtmlWebpackPlugin('index', '../src/template/index.pug'),
+    devHtmlWebpackPlugin('searchID', '../src/template/searchID.pug'),
+    devHtmlWebpackPlugin('cut', '../src/template/cut.pug')
   ]
 });

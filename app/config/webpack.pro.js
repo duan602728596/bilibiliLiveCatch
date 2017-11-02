@@ -98,7 +98,8 @@ module.exports = config({
       allChunks: true
     }),
     // html模板
-    proHtmlWebpackPlugin('index', '../src/index.pug'),
-    proHtmlWebpackPlugin('searchID', '../src/searchID.pug')
+    proHtmlWebpackPlugin('index', '../src/template/index.pug'),
+    proHtmlWebpackPlugin('searchID', '../src/template/searchID.pug'),
+    proHtmlWebpackPlugin('cut', '../src/template/cut.pug')
   ]
 });
