@@ -1,8 +1,10 @@
 # B站直播流抓取工具
 B站直播流抓取功能，以及视频的快速剪切功能。
-
-## ROOMID 
-ROOMID查看方式：进入B站直播间 -> 右键 -> 查看源代码 -> 第24行
+ 
+## ROOMID获取方法
+<del>ROOMID查看方式：进入B站直播间 -> 右键 -> 查看源代码 -> 第24行</del>
+B站直播已改版，ROOMID获取方式如下。
+https://api.live.bilibili.com/room/v1/Room/room_init?id={{ ID }}，GET请求。
 
 ## 许可证
 本软件遵循**Apache License 2.0**许可证。
