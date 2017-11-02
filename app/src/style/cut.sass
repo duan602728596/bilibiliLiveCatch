@@ -1,0 +1,45 @@
+@import './public/common'
+
+/* 顶部工具栏 */
+.tools
+  position: fixed
+  z-index: 1
+  top: 0
+  left: 0
+  width: 100%
+.tools, .cutList
+  padding: 10px
+/* 剪切列表 */
+.cutList
+  padding-top: 60px
+  &-table
+    td, th
+      vertical-align: middle
+  &-color-fff
+    color: #fff
+  &-w1
+    width: 45%
+  &-w2
+    width: 25%
+  &-w3
+    width: 30%
+  &-disabled
+    cursor: pointer
+    &[disabled]
+      cursor: no-drop
+  &-ft
+    display: inline-block
+    width: 40px
+/* 弹出层 */
+.dialog
+  display: block
+  background-color: rgba(0, 0, 0, .5)
+  &-title
+    font-size: 14px
+  &-input
+    display: inline-block
+    width: 100px
+  &-dian
+    margin: 0 5px
+  &-label
+    margin-right: 10px
