@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const HappyPack = require('happypack');
 const { devHtmlWebpackPlugin } = require('./htmlWebpackPlugin');
 const config = require('./webpack.config');
-const cssConfig = require('./css.config');
 const sassConfig = require('./sass.config');
 
 const happyThreadPool = HappyPack.ThreadPool({
@@ -56,6 +55,18 @@ module.exports = config({
             }
           }
         ]
+      },
+      { // 矢量图片 & 文字
+        test: /^.*\.(eot|svg|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name]_[hash].[ext]',
+              outputPath: 'file'
+            }
+          }
+        ]
       }
     ]
   },
@@ -78,7 +89,8 @@ module.exports = config({
     // 允许错误不打断程序
     new webpack.NoEmitOnErrorsPlugin(),
     // html模板
-    devHtmlWebpackPlugin('index', '../src/index.pug'),
-    devHtmlWebpackPlugin('searchID', '../src/searchID.pug')
+    devHtmlWebpackPlugin('index', '../src/template/index.pug'),
+    devHtmlWebpackPlugin('searchID', '../src/template/searchID.pug'),
+    devHtmlWebpackPlugin('cut', '../src/template/cut.pug')
   ]
 });

@@ -1,5 +1,4 @@
 # nwjs
-*.exe
 *.html
 *.dll
 *.log
@@ -7,18 +6,16 @@
 *.bin
 *.pak
 *.dat
+chromedriver.exe
+nw.exe
+nwjc.exe
+payload.exe
 pnacl
 locales
 
 # dependent
 dependent/ffmpeg/ffmpeg.exe
 dependent/ffmpeg/licenses
-
-# PepperFlash
-PepperFlash/_metadata
-PepperFlash/*.fingerprint
-PepperFlash/*.json
-PepperFlash/*.dll
 
 # output
 output/*.flv

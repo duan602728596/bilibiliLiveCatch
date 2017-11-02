@@ -1,7 +1,7 @@
 /* html模板 */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const excludeChunks = ['index', 'searchID'];
+const excludeChunks = ['index', 'searchID', 'cut'];
 
 // 跳过模块
 function excludeChunksCopy(name){

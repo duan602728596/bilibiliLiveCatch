@@ -13,7 +13,8 @@ function config(options){
   const conf = {
     entry: {
       'index': path.join(__dirname, '../src/entry/index.coffee'),
-      'searchID': path.join(__dirname, '../src/entry/searchID.coffee')
+      'searchID': path.join(__dirname, '../src/entry/searchID.coffee'),
+      'cut': path.join(__dirname, '../src/entry/cut.coffee')
     },
     module: {
       rules: [
@@ -34,7 +35,8 @@ function config(options){
             {
               loader: 'file-loader',
               options: {
-                name: 'script/[name]_[hash].[ext]'
+                name: '[name]_[hash].[ext]',
+                outputPath: 'script/'
               }
             }
           ]
@@ -45,7 +47,8 @@ function config(options){
             {
               loader: 'file-loader',
               options: {
-                name: 'style/[name]_[hash].[ext]'
+                name: '[name]_[hash].[ext]',
+                outputPath: 'style/'
               }
             }
           ]
@@ -57,18 +60,8 @@ function config(options){
               loader: 'url-loader',
               options: {
                 limit: 3000,
-                name: 'image/[name]_[hash].[ext]'
-              }
-            }
-          ]
-        },
-        { // 矢量图片 & 文字
-          test: /^.*\.(eot|svg|ttf|woff|woff2)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: 'file/[name]_[hash].[ext]'
+                name: '[name]_[hash].[ext]',
+                outputPath: 'image/'
               }
             }
           ]

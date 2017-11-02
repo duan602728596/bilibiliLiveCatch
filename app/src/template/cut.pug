@@ -1,0 +1,89 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href=require('bootstrap/dist/css/bootstrap.min.css'))
+  body
+    div#vue-app
+      // 顶部工具栏
+      header.bg-dark.tools
+        div
+          button.btn.btn-primary.mr.font12.cur-p(type='button' title='添加工程' v-on:click='dialogDisplay(true)')
+            i.icon.icon-film2
+            | 添加工程
+      // 剪切列表
+      div.cutList
+        table.table.table-bordered.table-hover.cutList-table.font12
+          thead.bg-primary.cutList-color-fff
+            tr
+              th.cutList-w1 视频
+              th.cutList-w2 时间
+              th.cutList-w3 操作
+          tbody(v-if='cutList.length === 0')
+            tr
+              td.text-center(colspan='3') 暂无数据
+          tbody(v-else v-for='(item, index) in cutList')
+            tr
+              td
+                b.cutList-ft From:
+                | {{ item.video }}
+                br
+                b.cutList-ft To:
+                | {{ item.file }}
+              td
+                b.cutList-ft Start:
+                | {{ item.startHour }}&nbsp;:&nbsp;{{ item.startMinute }}&nbsp;:&nbsp;{{ item.startSecond }}
+                br
+                b.cutList-ft End:
+                | {{ item.endHour }}&nbsp;:&nbsp;{{ item.endMinute }}&nbsp;:&nbsp;{{ item.endSecond }}
+              td
+                template(v-if='item.isEnd')
+                  b.mr 剪切完成
+                template(v-else)
+                  button.btn.btn-sm.btn-outline-danger.mr.font12.cur-p(type='button' title='停止剪切' v-if="'child' in item") 停止剪切
+                  button.btn.btn-sm.btn-outline-dark.mr.font12.cur-p(type='button' title='开始剪切' v-else v-on:click='onStartCut(item)') 开始剪切
+                button.btn.btn-sm.btn-outline-danger.cutList-disabled.font12(type='button' title='删除' v-on:click='onDelete(item)' v-bind:disabled="'child' in item") 删除
+      // 弹出层
+      transition(name='fade')
+        div.modal.dialog(tabindex='-1' role='dialog' v-if='cutShow')
+          form.modal-dialog.font12#dialog(role='document')
+            div.modal-content
+              div.modal-header
+                h5.modal-title.dialog-title 添加工程
+              div.modal-body
+                div.form-group
+                  label(for='forms-video') 选择视频:
+                  input.form-control-file.font12#forms-video(type='file' v-on:change='onVideoChange($event)')
+                div.form-group
+                  label.dialog-label 开始时间:
+                  input.form-control.dialog-input.font12#forms-st1(type='text' aria-label='开始时间，时' v-model='startHour')
+                  span.dialog-dian :
+                  input.form-control.dialog-input.font12#forms-st2(type='text' aria-label='开始时间，分' v-model='startMinute')
+                  span.dialog-dian :
+                  input.form-control.dialog-input.font12#forms-st3(type='text' aria-label='开始时间，秒' v-model='startSecond')
+                div.form-group
+                  label.dialog-label 结束时间:
+                  input.form-control.dialog-input.font12#forms-ed1(type='text' aria-label='结束时间，时' v-model='endHour')
+                  span.dialog-dian :
+                  input.form-control.dialog-input.font12#forms-ed2(type='text' aria-label='结束时间，分' v-model='endMinute')
+                  span.dialog-dian :
+                  input.form-control.dialog-input.font12#forms-ed3(type='text' aria-label='结束时间，秒' v-model='endSecond')
+                div.form-group
+                  label(for='forms-file') 保存位置:
+                  input.form-control-file.font12#forms-file(type='file' v-bind:nwsaveas='saveas' v-on:change='onFileChange($event)')
+              div.modal-footer
+                button.btn.btn-secondary.font12.cur-p(type='button' title='关闭' v-on:click='dialogDisplay(false)') 关闭
+                button.btn.btn-primary.font12.cur-p(type='button' title='添加' v-on:click='onAddCut()') 添加
+      transition(name='fade')
+        div.modal.dialog(tabindex='-1' role='dialog' v-if='item !== null')
+          div.modal-dialog(role='document')
+            div.modal-content
+              div.modal-header
+                h5.modal-title.dialog-title 警告
+              div.modal-body
+                p.font12 确认要删除当前工程吗？
+              div.modal-footer
+                button.btn.btn-danger.font12.cur-p(type='button' title='确认' v-on:click='onOkDelete()') 确认
+                button.btn.btn-secondary.font12.cur-p(type='button' title='取消' data-dismiss="modal" v-on:click='onCancelDelete()') 取消
+    script(type='text/javascript' src=require('../../.dll/dll'))
