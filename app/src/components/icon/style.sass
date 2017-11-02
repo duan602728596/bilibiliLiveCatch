@@ -1,14 +1,16 @@
 $icomoon-font-path: './fonts' !default
 
-$icon-files: '\e900'
-$icon-alignment-align: '\f08a'
+$icon-film: '\e900'
+$icon-film2: '\e902'
+$icon-scissors: '\e903'
+$icon-clipboard: '\e901'
 $icon-search: '\f02e'
 $icon-server: '\f097'
-$icon-spinner10: '\e983'
+$icon-drive: '\e963'
 
 @font-face
   font-family: 'icons'
-  src: url('#{ $icomoon-font-path }/icons.ttf?xzscqz') format('truetype'), url('#{ $icomoon-font-path }/icons.woff?xzscqz') format('woff'), url('#{ $icomoon-font-path }/icons.svg?xzscqz#icon') format('svg')
+  src: url('#{ $icomoon-font-path }/icons.ttf?qq6qsk') format('truetype'), url('#{ $icomoon-font-path }/icons.woff?qq6qsk') format('woff'), url('#{ $icomoon-font-path }/icons.svg?qq6qsk#icons') format('svg')
   font-weight: normal
   font-style: normal
 
@@ -29,18 +31,24 @@ $icon-spinner10: '\e983'
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
-.icon-files
+.icon-film
   &:before
-    content: $icon-files
-.icon-alignment-align
+    content: $icon-film
+.icon-film2
   &:before
-    content: $icon-alignment-align
+    content: $icon-film2
+.icon-scissors
+  &:before
+    content: $icon-scissors
+.icon-clipboard
+  &:before
+    content: $icon-clipboard
 .icon-search
   &:before
     content: $icon-search
 .icon-server
   &:before
     content: $icon-server
-.icon-spinner10
+.icon-drive
   &:before
-    content: $icon-spinner10
+    content: $icon-drive
