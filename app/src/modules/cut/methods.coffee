@@ -14,14 +14,14 @@ dialogDisplay = (value)->
 # 选择文件
 onVideoChange = (event)->
   file = event.target.files[0]
-  @video = file ? file : null
+  @video = if file then file else null
   if file
     p = path.parse(file.path)
     @saveas = '[cut]' + p.name + '-' + time('YYMMDDhhmmss') + p.ext
 
 onFileChange = (event)->
   file = event.target.files[0]
-  @file = file ? file : null
+  @file = if file then file else null
 
 # 添加
 onAddCut = ()->
@@ -38,6 +38,7 @@ onAddCut = ()->
     'isEnd': false,
   }
   @cutList.push(x)
+  # 初始化弹出层
   @startHour = ''
   @startMinute = ''
   @startSecond = ''
