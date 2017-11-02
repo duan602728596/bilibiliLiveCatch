@@ -4,12 +4,12 @@ url = global.require('url')
 # 复制
 onCopy = ()->
   range = document.createRange();
-  range.selectNode(document.getElementById('id'));
-  selection = window.getSelection();
+  range.selectNode(document.getElementById('id'))
+  selection = window.getSelection()
   if selection.rangeCount > 0
     selection.removeAllRanges()
-  selection.addRange(range);
-  document.execCommand('copy');
+  selection.addRange(range)
+  document.execCommand('copy')
 
 # 获取ROOMID
 onGetRoomId = ()->
