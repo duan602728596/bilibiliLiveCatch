@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const HappyPack = require('happypack');
 const { devHtmlWebpackPlugin } = require('./htmlWebpackPlugin');
 const config = require('./webpack.config');
-const cssConfig = require('./css.config');
 const sassConfig = require('./sass.config');
 
 const happyThreadPool = HappyPack.ThreadPool({
