@@ -12,9 +12,9 @@ const happyThreadPool = HappyPack.ThreadPool({
 function config(options){
   const conf = {
     entry: {
-      'index': path.join(__dirname, '../src/entry/index.coffee'),
-      'searchID': path.join(__dirname, '../src/entry/searchID.coffee'),
-      'cut': path.join(__dirname, '../src/entry/cut.coffee')
+      index: path.join(__dirname, '../src/entry/index.coffee'),
+      searchID: path.join(__dirname, '../src/entry/searchID.coffee'),
+      cut: path.join(__dirname, '../src/entry/cut.coffee')
     },
     module: {
       rules: [
