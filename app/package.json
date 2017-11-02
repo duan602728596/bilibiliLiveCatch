@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-	"json_xml": "^1.2.4",
+    "json_xml": "^1.2.4",
     "request": "^2.83.0"
   },
   "devDependencies": {
