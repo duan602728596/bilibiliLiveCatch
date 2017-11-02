@@ -17,9 +17,9 @@ app = new Vue({
 { name, version, objectStore } = config.indexeddb
 
 initDbUp = (et, event)->
-  { name, key, data } = objectStore.list
-  if not @.hasObjectStore(name)
-    @.createObjectStore(name, key, data)
+  list = objectStore.list
+  if not @.hasObjectStore(list.name)
+    @.createObjectStore(list.name, list.key, list.data)
 
 initDbSuccess = (et, event)->
   _this = @

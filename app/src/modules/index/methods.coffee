@@ -4,7 +4,7 @@ import { isReset, time } from '../../components/function.coffee'
 import { getXML, analysisXML } from './recordVideo.coffee'
 import { stdout, stderr, exit, error } from './childListener.coffee'
 gui = global.require('nw.gui')
-childProcess = global.require('child_process');
+child_process = global.require('child_process');
 
 SPACE_REG = /^\s*$/
 { name, version, objectStore } = config.indexeddb
@@ -84,28 +84,35 @@ onOpenSearchIDWindow = ()->
     'width': 500,
     'height': 300,
     'focus': true,
-    'title': 'ROOMID搜索',
+    'title': 'RoomID搜索',
+  })
+
+onOpenCutWindow = ()->
+  gui.Window.open('./build/cut.html', {
+    'position': 'center',
+    'width': 1200,
+    'height': 600,
+    'focus': true,
+    'title': '视频剪切',
   })
 
 # 录制
 onRecording = (item)->
-  { name, id } = item
+  { id } = item
   index = isReset(@idList, 'id', id, 0, @idList.length - 1)
   result = await getXML(id)
   urlList = analysisXML(result)
   title = "#{ id }_#{ time('YYMMDDhhmmss') }"
-  child = childProcess.spawn(config.ffmpeg, ['-i', urlList.url, '-c', 'copy', config.output + '/' + title + '.flv'])
-  x = {
-    id,
-    name,
+  child = child_process.spawn(config.ffmpeg, ['-i', urlList.url, '-c', 'copy', config.output + '/' + title + '.flv'])
+  Object.assign(item, {
     title,
     child,
-  }
-  child.stdout.on('data', stdout.bind(@, x))
-  child.stderr.on('data', stderr.bind(@, x))
-  child.on('exit', exit.bind(@, x))
-  child.on('error', error.bind(@, x))
-  @idList.splice(index, 1, x)
+  })
+  child.stdout.on('data', stdout.bind(@, item))
+  child.stderr.on('data', stderr.bind(@, item))
+  child.on('exit', exit.bind(@, item))
+  child.on('error', error.bind(@, item))
+  @idList.splice(index, 1, item)
 
 # 停止录制
 onStopRecording = (item)->
@@ -120,11 +127,12 @@ methods = {
   dialogDisplay,
   addAData,
   onDelete,
-  onOpenSearchIDWindow,
-  onRecording,
-  onStopRecording,
   onOkDelete,
   onCancelDelete,
+  onOpenSearchIDWindow,
+  onOpenCutWindow,
+  onRecording,
+  onStopRecording,
 }
 
 export default methods
