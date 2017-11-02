@@ -1,6 +1,6 @@
 {
   "name": "bilibiliLiveCatch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "B站直播流抓取工具。",
   "license": "Apache License 2.0",
   "scripts": {
@@ -33,7 +33,6 @@
   },
   "devDependencies": {
     "bootstrap": "^4.0.0-beta.2",
-    "bundle-loader": "^0.5.5",
     "coffee-loader": "^0.9.0",
     "coffeescript": "^2.0.2",
     "cross-env": "^5.1.1",
