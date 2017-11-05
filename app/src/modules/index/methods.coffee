@@ -1,7 +1,7 @@
 import IndexedDB from 'indexeddb-tools';
 import config from '../../components/config.coffee'
 import { isReset, time } from '../../components/function.coffee'
-import { getXML, analysisXML } from './recordVideo.coffee'
+import { getUrl } from './recordVideo.coffee'
 import { stdout, stderr, exit, error } from './childListener.coffee'
 gui = global.require('nw.gui')
 child_process = global.require('child_process');
@@ -100,10 +100,10 @@ onOpenCutWindow = ()->
 onRecording = (item)->
   { id } = item
   index = isReset(@idList, 'id', id, 0, @idList.length - 1)
-  result = await getXML(id)
-  urlList = analysisXML(result)
+  result = await getUrl(id)
+  urlList = JSON.parse(result)
   title = "#{ id }_#{ time('YYMMDDhhmmss') }"
-  child = child_process.spawn(config.ffmpeg, ['-i', urlList.url, '-c', 'copy', config.output + '/' + title + '.flv'])
+  child = child_process.spawn(config.ffmpeg, ['-i', urlList.durl[0].url, '-c', 'copy', config.output + '/' + title + '.flv'])
   Object.assign(item, {
     title,
     child,

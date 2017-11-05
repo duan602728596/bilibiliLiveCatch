@@ -1,11 +1,10 @@
 request = global.require('request')
-json_xml = global.require('json_xml')
 
 # 获取地址方法
-export getXML = (roomID)->
+export getUrl = (roomID)->
   return new Promise((resolve, reject)=>
     request({
-      'url': "http://live.bilibili.com/api/playurl?player=1&cid=#{ roomID }&quality=0",
+      'url': "http://api.live.bilibili.com/api/playurl?cid=#{ roomID }&otype=json&quality=0&platform=web",
       'method': 'GET',
       'headers': {
         'Host': 'live.bilibili.com',
@@ -20,15 +19,3 @@ export getXML = (roomID)->
         resolve(body)
     )
   )
-
-# 解析XML
-export analysisXML = (str)->
-  video = json_xml.xml2json(str)
-  ###
-  包含
-    * url
-    * b1url
-    * b2url
-    * b3url
-  ###
-  return video.video.durl
