@@ -25,7 +25,8 @@ initDbSuccess = (et, event)->
   _this = @
   store = @getObjectStore(objectStore.list.name)
   data2 = []
-  store.cursor('name', (result, event)->
+  store.cursor('name', (event)->
+    { result } = event.target
     if result
       data2.push(result.value)
       result.continue()
