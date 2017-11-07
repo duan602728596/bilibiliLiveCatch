@@ -43,7 +43,7 @@ addAData = ()->
   # 将数据添加到数据库中
   IndexedDB(name, version, {
     'success': (et, event)->
-      store = @getObjectStore(objectStore.list.name)
+      store = @getObjectStore(objectStore.list.name, true)
       d = {
         'name': _this.name,
         'id': Number(_this.id),
@@ -66,7 +66,7 @@ onOkDelete = ()->
   index = isReset(@idList, 'id', id, 0, @idList.length - 1)
   IndexedDB(name, version, {
     'success': (et, event)->
-      store = @getObjectStore(objectStore.list.name)
+      store = @getObjectStore(objectStore.list.name, true)
       store.delete(id)
       _this.idList.splice(index, 1)
       _this.item = null
