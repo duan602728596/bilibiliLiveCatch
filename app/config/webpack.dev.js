@@ -41,8 +41,8 @@ module.exports = config({
           {
             loader: 'file-loader',
             options: {
-              name: '[name]_[hash].[ext]',
-              outputPath: 'file'
+              name: '[name].[ext]',
+              outputPath: 'file/'
             }
           }
         ]

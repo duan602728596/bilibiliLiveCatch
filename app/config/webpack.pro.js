@@ -49,7 +49,7 @@ module.exports = config({
             options: {
               name: '[name]_[hash].[ext]',
               outputPath: 'file/',
-              publicPath: '../'
+              publicPath: '../file/'
             }
           }
         ]
