@@ -15,6 +15,4 @@ app/.idea
 .happypack
 .dll
 build
-
-# plugin
-.plugin/ckplayer
+.babelCache
