@@ -1,5 +1,5 @@
 # child进程的监听函数
-import { isReset } from '../../components/function.coffee'
+import { isReset } from '../../../public/function.coffee'
 
 cb = (item)->
   index = isReset(@idList, 'id', item.id, 0, @idList.length - 1)

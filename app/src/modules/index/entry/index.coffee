@@ -1,10 +1,10 @@
 import Vue from 'vue/dist/vue'
 import IndexedDB from 'indexeddb-tools';
-import '../style/index.sass'
-import '../components/icon/style.sass'
-import config from '../components/config.coffee'
-import data from '../modules/index/data.coffee'
-import methods from '../modules/index/methods.coffee'
+import '../components/style.sass'
+import '../../../public/icon/style.sass'
+import config from '../../../public/config.coffee'
+import data from '../components/data.coffee'
+import methods from '../components/methods.coffee'
 
 # 初始化vue
 app = new Vue({

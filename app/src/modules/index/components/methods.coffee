@@ -1,6 +1,6 @@
 import IndexedDB from 'indexeddb-tools';
-import config from '../../components/config.coffee'
-import { isReset, time } from '../../components/function.coffee'
+import config from '../../../public/config.coffee'
+import { isReset, time } from '../../../public/function.coffee'
 import { getUrl } from './recordVideo.coffee'
 import { stdout, stderr, exit, error } from './childListener.coffee'
 gui = global.require('nw.gui')

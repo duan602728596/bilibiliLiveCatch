@@ -1,6 +1,6 @@
-import { isReset, time, zero, randomStr } from '../../components/function.coffee'
+import { isReset, time, zero, randomStr } from '../../../public/function.coffee'
 import { stdout, stderr, exit, error } from './childListener.coffee'
-import config from '../../components/config.coffee'
+import config from '../../../public/config.coffee'
 import computingTime from './computingTime.coffee'
 child_process = global.require('child_process')
 path = global.require('path')
