@@ -63,6 +63,7 @@ onCancelDelete = ()->
 
 # 剪切
 onStartCut = (item)->
+  { ext } = path.parse(item.file)
   index = isReset(@cutList, 'id', item.id, 0, @cutList.length - 1)
   [h, m, s] = computingTime(
     [
@@ -76,7 +77,16 @@ onStartCut = (item)->
       Number(item.endSecond),
     ],
   )
-  child = child_process.spawn(config.ffmpeg, [
+  console.log(ext)
+  arg = if ext == '.gif' then [
+    '-ss',
+    "#{ item.startHour }:#{ item.startMinute }:#{ item.startSecond }",
+    '-t',
+    "#{ zero(h) }:#{ zero(m) }:#{ zero(s) }",
+    '-i',
+    item.video,
+    item.file,
+  ] else [
     '-ss',
     "#{ item.startHour }:#{ item.startMinute }:#{ item.startSecond }",
     '-t',
@@ -89,7 +99,9 @@ onStartCut = (item)->
     '-vcodec',
     'copy',
     item.file,
-  ])
+  ]
+  console.log(arg)
+  child = child_process.spawn(config.ffmpeg, arg)
   Object.assign(item, {
     child,
   })

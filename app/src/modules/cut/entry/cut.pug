@@ -70,7 +70,7 @@ html
                   span.dialog-dian :
                   input.form-control.dialog-input.font12#forms-ed3(type='text' aria-label='结束时间，秒' v-model='endSecond')
                 div.form-group
-                  label(for='forms-file') 保存位置:
+                  label(for='forms-file') 保存位置（保存成gif格式则导出动态图片）:
                   input.form-control-file.font12#forms-file(type='file' v-bind:nwsaveas='saveas' v-on:change='onFileChange($event)')
               div.modal-footer
                 button.btn.btn-secondary.font12.cur-p(type='button' title='关闭' v-on:click='dialogDisplay(false)') 关闭
