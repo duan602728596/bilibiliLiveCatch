@@ -40,7 +40,7 @@
     "coffeescript": "^2.2.2",
     "cross-env": "^5.1.3",
     "css-loader": "^0.28.10",
-    "extract-text-webpack-plugin": "duan602728596/extract-text-webpack-plugin#build",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.0.4",
     "indexeddb-tools": "^2.0.3",
