@@ -1,7 +1,7 @@
 {
   "name": "bilibiliLiveCatch",
   "version": "1.3.0",
-  "description": "B站直播流抓取工具。",
+  "description": "B站直播流抓取工具，带视频的快速剪切功能。",
   "license": "Apache License 2.0",
   "scripts": {
     "start": "npm run cleanbuild && cross-env NODE_ENV=development ./node_modules/.bin/webpack --config ./config/webpack.dev.js --watch",
